@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="d-flex justify-content-center align-items-center">
+      <h1 class="me-4 my-4">{{ user.username }}님의 마이페이지</h1>
+    </div>
+  </div>
+{% endblock content %}

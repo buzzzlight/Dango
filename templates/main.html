@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <div class="container my-5">
+    <div class="row">
+      {% for product in products %}
+      <div class="col-md-4 col-sm-6 p-3">
+        {% comment %} 이미지 있는 글만 보이게 {% endcomment %}
+        {% if product.image %}
+        <div class="card card-style grow">
+          <a href="{% url 'products:detail' product.pk %}"><img src="{{ product.image.url }}" class="card-img-top" alt="..."></a>
+          <div class="card-body">
+            <a href="{% url 'products:detail' product.pk %}" style="color: black;"><h5 class="card-title">{{ product.title }}</h5></a>
+            <a href="{% url 'products:detail' product.pk %}" style="color: black;"><p class="card-text">{{ product.price }}원</p></a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock content %}
